@@ -26,4 +26,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-This project is maintained using [Apache 2.0](https://github.com/mtmulch12/AngularSPA/blob/main/LICENSE).
+This project is maintained using [Apache 2.0](https://github.com/Encryption-API-Services/AngularSPA/blob/master/LICENSE).
