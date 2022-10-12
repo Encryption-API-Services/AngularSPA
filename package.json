@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
+    "start": "ng serve",
     "build": "ng build",
+    "dev": "ng serve --proxy-config proxy.conf.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -20,13 +21,14 @@
     "@angular/router": "^14.0.0",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.2",
+    "fontawesome-free": "^1.0.4",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.0.3",
-    "@angular/cli": "~14.0.3",
+    "@angular/cli": "~14.2.5",
     "@angular/compiler-cli": "^14.0.0",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.1.0",
