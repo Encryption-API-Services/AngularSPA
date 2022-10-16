@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  
+  { path: "register", loadChildren: () => import(`./modules/register/register.module`).then(module => module.RegisterModule) },
+  { path: "login", loadChildren: () => import(`./modules/login/login.module`).then(module => module.LoginModule) },
 ];
 
 @NgModule({
