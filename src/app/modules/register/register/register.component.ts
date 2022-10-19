@@ -1,6 +1,7 @@
 // deno-lint-ignore-file no-inferrable-types
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpService } from '../../../services/http.service.ts';
 import { passwordValidator } from "../../../validators/form-validators";
 
 @Component({
@@ -25,7 +26,7 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
+  ngOnInit(private http: HttpService): void {
 
   }
 
@@ -33,7 +34,6 @@ export class RegisterComponent implements OnInit {
     this.isSubmitClicked = true;
     if (this.registerForm.valid) {
       this.isFormValid = true;
-
     } else {
       this.isFormValid = false;
     }
