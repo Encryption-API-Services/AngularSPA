@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/afde7abf-7c2c-46ce-8fc5-33bdd7ec5888/AppServices/subscriptions/afde7abf-7c2c-46ce-8fc5-33bdd7ec5888/resourceGroups/MM/providers/Microsoft.Web/sites/AngularSPA",
+    "appService.deploySubpath": "dist/angular-spa"
+}
