@@ -35,7 +35,6 @@ export class RegisterComponent implements OnInit {
       this.isFormValid = true;
 
     } else {
-      console.log("invalid");
       this.isFormValid = false;
     }
   }
