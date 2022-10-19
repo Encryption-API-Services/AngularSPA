@@ -10,34 +10,33 @@ import { passwordValidator } from "../../../validators/form-validators";
 })
 export class RegisterComponent implements OnInit {
 
-  public canSubmit: boolean = false;
-  public submitClicked: boolean = false;
+  public isFormValid: boolean = false;
+  public isSubmitClicked: boolean = false; 
   public registerForm: FormGroup = this.formBuilder.group({
-    email: ['',
-           [Validators.required, Validators.email]
+    email: ['mtmulch0191@outlook.com',
+      [Validators.required, Validators.email]
     ],
-    username: ['', [Validators.required, Validators.minLength(6)]],
-    password: ['', [passwordValidator]]
+    username: ['mtmulch', [Validators.required, Validators.minLength(6)]],
+    password: ['Testing1234!@', [passwordValidator]]
   });
 
   constructor(private formBuilder: FormBuilder) {
-    
-   }
 
-  
-  ngOnInit(): void {
-    
   }
-  
+
+
+  ngOnInit(): void {
+
+  }
+
   public handleFormSubmit($event: any) {
-    this.submitClicked = !this.submitClicked;
-    console.log(this.registerForm);
+    this.isSubmitClicked = true;
     if (this.registerForm.valid) {
-      console.log("Valid");
-      this.canSubmit = true;
+      this.isFormValid = true;
+
     } else {
       console.log("invalid");
-      this.submitClicked = false;
+      this.isFormValid = false;
     }
   }
 }

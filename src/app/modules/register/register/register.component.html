@@ -22,7 +22,7 @@
               <label for="password-input" class="form-label">Password</label>
               <input type="password" class="form-control" id="password-input" formControlName="password">
             </div>
-            <div class="alert alert-danger" role="alert" *ngIf="!canSubmit && submitClicked">
+            <div class="alert alert-danger" role="alert" *ngIf="isSubmitClicked && !isFormValid">
                 Register form is not valid.
               </div>
             <button type="button" class="btn btn-primary" (click)="handleFormSubmit($event)">Submit</button>
