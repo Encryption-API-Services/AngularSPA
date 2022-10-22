@@ -1,7 +1,7 @@
 // deno-lint-ignore-file no-inferrable-types
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpService } from '../../../services/http.service.ts';
+import { HttpService } from 'src/app/services/http.service';
 import { passwordValidator } from "../../../validators/form-validators";
 
 @Component({
@@ -21,12 +21,12 @@ export class RegisterComponent implements OnInit {
     password: ['Testing1234!@', [passwordValidator]]
   });
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private http: HttpService) {
 
   }
 
 
-  ngOnInit(private http: HttpService): void {
+  ngOnInit(): void {
 
   }
 
@@ -34,8 +34,21 @@ export class RegisterComponent implements OnInit {
     this.isSubmitClicked = true;
     if (this.registerForm.valid) {
       this.isFormValid = true;
+      this.http.post("/api/UserRegister/", this.createFormObject()).subscribe(response => {
+        console.log(response);
+      }, (error) => {
+        console.error(error);
+      })
     } else {
       this.isFormValid = false;
+    }
+  }
+
+  private createFormObject() {
+    return {
+      "username": this.registerForm.value.username,
+      "email": this.registerForm.value.email,
+      "password": this.registerForm.value.password
     }
   }
 }
