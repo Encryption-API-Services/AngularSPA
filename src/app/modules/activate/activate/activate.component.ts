@@ -13,7 +13,8 @@ export class ActivateComponent implements OnInit {
 
   ngOnInit(): void {
     const body = {
-      "id": this.router.snapshot.queryParamMap.get('id')
+      "id": this.router.snapshot.queryParamMap.get('id'),
+      "token": this.router.snapshot.queryParamMap.get('token'),
     }
     this.http.put("/api/UserRegister/Activate/", body).subscribe(response => {
       console.log(response);
