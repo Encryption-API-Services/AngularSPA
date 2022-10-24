@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import RegisterUserFormObject from 'src/app/models/RegisterUserFormObject';
 import { HttpService } from 'src/app/services/http.service';
+import { environment } from 'src/environments/environment';
 import { passwordValidator } from "../../../validators/form-validators";
 
 @Component({
@@ -11,7 +12,7 @@ import { passwordValidator } from "../../../validators/form-validators";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  private apiUrl: string = "/api/UserRegister/";
+  private apiUrl: string = environment.apiUrl + "UserRegister";
   public isFormValid: boolean = false;
   public isSubmitClicked: boolean = false; 
   public registerForm: FormGroup = this.formBuilder.group({
