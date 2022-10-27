@@ -22,6 +22,7 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^4.6.2",
     "echarts": "^5.4.0",
+    "jquery": "^3.6.1",
     "ngx-echarts": "^14.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
