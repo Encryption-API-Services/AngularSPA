@@ -57,4 +57,10 @@ export class LoginComponent implements OnInit {
       this.loginForm.value.password
     );
   }
+
+  public handleEnterPress(event: any): void {
+    if (event.keyCode === 13) {
+      this.handleFormSubmit(event);
+    }
+  }
 }
