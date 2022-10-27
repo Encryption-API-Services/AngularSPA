@@ -50,6 +50,12 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  public handleEnterPress(event: any): void {
+    if (event.keyCode === 13) {
+      this.handleFormSubmit(event);
+    }
+  }
+
   private createFormObject(): RegisterUserFormObject {
     return new RegisterUserFormObject( 
       this.registerForm.value.username,

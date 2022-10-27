@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col"></div>
     <div class="col">
-        <form [formGroup]="registerForm">
+        <form [formGroup]="registerForm" (keydown)="handleEnterPress($event)">
             <div class="mb-3">
                 <label for="email-input" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp"
@@ -27,7 +27,7 @@
             <div class="alert alert-danger" role="alert" *ngIf="isSubmitClicked && !isFormValid">
                 Register form is not valid.
             </div>
-            <button type="button" class="btn btn-primary" (click)="handleFormSubmit($event)" *ngIf="!isSubmitClicked">Submit</button>
+            <button type="button" class="btn btn-primary" (click)="handleFormSubmit($event)" (keydown)="handleEnterPress($event)" *ngIf="!isSubmitClicked">Submit</button>
             <div class="spinner-border text-primary" role="status" *ngIf="isSubmitClicked">
                 <span class="visually-hidden">Loading...</span>
             </div>
