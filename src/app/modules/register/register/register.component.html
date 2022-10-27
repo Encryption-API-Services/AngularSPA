@@ -11,21 +11,26 @@
     <div class="col">
         <form [formGroup]="registerForm">
             <div class="mb-3">
-              <label for="email-input" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp" formControlName="email">
+                <label for="email-input" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp"
+                    formControlName="email">
             </div>
             <div class="mb-3">
                 <label for="username-input" class="form-label">Username</label>
-                <input type="email" class="form-control" id="username-input" aria-describedby="usernameHelp" formControlName="username">
+                <input type="email" class="form-control" id="username-input" aria-describedby="usernameHelp"
+                    formControlName="username">
             </div>
             <div class="mb-3">
-              <label for="password-input" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password-input" formControlName="password">
+                <label for="password-input" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password-input" formControlName="password">
             </div>
             <div class="alert alert-danger" role="alert" *ngIf="isSubmitClicked && !isFormValid">
                 Register form is not valid.
-              </div>
-            <button type="button" class="btn btn-primary" (click)="handleFormSubmit($event)">Submit</button>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="handleFormSubmit($event)" *ngIf="!isSubmitClicked">Submit</button>
+            <div class="spinner-border text-primary" role="status" *ngIf="isSubmitClicked">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         </form>
     </div>
     <div class="col"></div>
