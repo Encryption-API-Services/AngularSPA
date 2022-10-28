@@ -13,12 +13,12 @@
         <form [formGroup]="loginForm" (keydown)="handleEnterPress($event)">
             <div class="mb-3">
                 <label for="email-input" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp"
-                    formControlName="email">
+                <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp" formControlName="email">
             </div>
             <div class="mb-3">
                 <label for="password-input" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password-input" formControlName="password">
+                <a href="" routerLink="/forgot-password">Forgot Password?</a>
             </div>
             <button type="button" class="btn btn-primary" (click)="handleFormSubmit($event)" (keydown)="handleEnterPress($event)" *ngIf="!isSubmitClicked">Submit</button>
             <div class="spinner-border text-primary" role="status" *ngIf="isSubmitClicked">
