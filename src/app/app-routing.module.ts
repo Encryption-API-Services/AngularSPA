@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: "login", loadChildren: () => import(`./modules/login/login.module`).then(module => module.LoginModule) },
   { path: "about", loadChildren: () => import(`./modules/about/about.module`).then(module => module.AboutModule) },
   { path: "activate", loadChildren: () => import(`./modules/activate/activate.module`).then(module => module.ActivateModule) },
-  { path: "user-home", loadChildren: () => import(`./modules/user-home/user-home.module`).then(module => module.UserHomeModule), canActivate: [AuthGuardService] }
+  { path: "user-home", loadChildren: () => import(`./modules/user-home/user-home.module`).then(module => module.UserHomeModule), canActivate: [AuthGuardService] },
+  { path: "forgot-password", loadChildren: () => import(`./modules/forgot-password/forgot-password.module`).then(module => module.ForgotPasswordModule) }
 ];
 
 @NgModule({
