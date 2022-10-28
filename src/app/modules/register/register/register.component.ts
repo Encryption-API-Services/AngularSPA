@@ -38,8 +38,8 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       this.isSubmitClicked = true;
       this.isFormValid = true;
-      this.http.post(this.apiUrl, this.createFormObject()).subscribe(response => {
-        console.log(response);
+      this.http.post(this.apiUrl, this.createFormObject()).subscribe((response: any) => {
+        this.registerForm.reset();
         this.isSubmitClicked = false;
       }, (error) => {
         console.error(error);

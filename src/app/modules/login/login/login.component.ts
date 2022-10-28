@@ -37,11 +37,10 @@ export class LoginComponent implements OnInit {
       this.isSubmitClicked = true;
       this.isFormValid = true;
       this.http.post(this.apiUrl, this.createFormObject()).subscribe((response: any) => {
-        console.log(response.token);
-        localStorage.setItem("token", response.token);
-        this.loginForm.reset();
-        this.router.navigate(['/user-home']);
         this.isSubmitClicked = false;
+        this.loginForm.reset();
+        localStorage.setItem("token", response.token);
+        this.router.navigate(['/user-home']);
       }, (error) => {
         console.error(error);
         this.isSubmitClicked = false;
