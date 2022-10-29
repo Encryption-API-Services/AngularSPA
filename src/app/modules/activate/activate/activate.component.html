@@ -1,1 +1,11 @@
-<p>activate works!</p>
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <h3 *ngIf="!isAuthenticating && wasSuccessful">User Account Was Activated</h3>
+        <h3 *ngIf="!isAuthenticating && !wasSuccessful">User Account Activation Failed</h3>
+        <div class="spinner-border text-primary" role="status" *ngIf="isAuthenticating && !wasSuccessful">
+            <span class="visually-hidden">Authenticating...</span>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
