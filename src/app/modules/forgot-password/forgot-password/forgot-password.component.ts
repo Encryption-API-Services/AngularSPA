@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpService } from 'src/app/services/http.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-forgot-password',
@@ -6,10 +9,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
+  private apiUrl: string = environment.apiUrl + "Password/ForgotPassword";
+  public isFormSubmitted: boolean = false;
 
-  constructor() { }
+  public forgotPasswordForm: FormGroup = this.formBuilder.group({
+    email: ['', [Validators.required, Validators.email]]
+  });
+
+  constructor(private formBuilder: FormBuilder, private http: HttpService) { }
 
   ngOnInit(): void {
+
   }
 
+  public handleKeyPress(event: any): void {
+    if (event.keyCode === 13) {
+      this.handleSubmit(event);
+    }
+  }
+
+  public handleSubmit(event: any): void {
+    this.isFormSubmitted = true;
+    if (this.forgotPasswordForm.valid) {
+      const email = this.forgotPasswordForm.value["email"]
+      this.http.post(this.apiUrl, { email: email }).subscribe((response: any) => {
+        this.isFormSubmitted = false;
+      }, (error) => {
+        this.isFormSubmitted = false;
+      });
+    } else {
+      this.isFormSubmitted = false;
+    }
+  }
 }
