@@ -1,14 +1,12 @@
 # AngularSPA
 
-This is a the SPA that users 
-
+This is the user interface for Encryption API Services that utilizies that hand made authenitcation located in [NETCore-API](https://github.com/Encryption-API-Services/NETCore-API). 
 
 # To Start 
 ```shell
 npm install 
 npm start
 ```
-
 
 Development Tools Required for WSL2 and VsCode.
 [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
