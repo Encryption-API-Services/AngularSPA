@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import LoginUserFormObject from 'src/app/models/LoginUserFormObject';
 import { HttpService } from 'src/app/services/http.service';
+import { NavbarEmitterService } from 'src/app/services/navbar-emitter.service';
 import { passwordValidator } from 'src/app/validators/form-validators';
 import { environment } from 'src/environments/environment';
 
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder, 
     private http: HttpService,
-    private router: Router
+    private router: Router,
+    private navbarEmitter: NavbarEmitterService
     ) { }
 
   ngOnInit(): void {
@@ -40,6 +42,7 @@ export class LoginComponent implements OnInit {
         this.isSubmitClicked = false;
         this.loginForm.reset();
         localStorage.setItem("token", response.token);
+        this.navbarEmitter.navbarEvents("user-logged-in");
         this.router.navigate(['/user-home']);
       }, (error) => {
         console.error(error);
