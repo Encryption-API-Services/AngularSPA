@@ -1,5 +1,13 @@
 # AngularSPA
 
+
+# To Start 
+```shell
+npm install 
+npm start
+```
+
+
 Development Tools Required for WSL2 and VsCode.
 [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
 
