@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/services/http.service';
 import { environment } from 'src/environments/environment';
 
@@ -16,7 +17,11 @@ export class ForgotPasswordComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]]
   });
 
-  constructor(private formBuilder: FormBuilder, private http: HttpService) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private http: HttpService,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit(): void {
 
@@ -33,7 +38,10 @@ export class ForgotPasswordComponent implements OnInit {
     if (this.forgotPasswordForm.valid) {
       const email = this.forgotPasswordForm.value["email"]
       this.http.post(this.apiUrl, { email: email }).subscribe((response: any) => {
+        console.log(response);
         this.isFormSubmitted = false;
+        this.forgotPasswordForm.reset();
+        this.toastr.success("", response.message);
       }, (error) => {
         this.isFormSubmitted = false;
       });
