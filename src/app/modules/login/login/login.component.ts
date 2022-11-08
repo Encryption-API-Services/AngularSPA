@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import LoginUserFormObject from 'src/app/models/LoginUserFormObject';
 import { HttpService } from 'src/app/services/http.service';
 import { NavbarEmitterService } from 'src/app/services/navbar-emitter.service';
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder, 
     private http: HttpService,
     private router: Router,
-    private navbarEmitter: NavbarEmitterService
+    private navbarEmitter: NavbarEmitterService,
+    private toastr: ToastrService
     ) { }
 
   ngOnInit(): void {
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit {
       this.isSubmitClicked = true;
       this.isFormValid = true;
       this.http.post(this.apiUrl, this.createFormObject()).subscribe((response: any) => {
+        this.toastr.success("", response.message);
         this.isSubmitClicked = false;
         this.loginForm.reset();
         localStorage.setItem("token", response.token);
@@ -46,6 +49,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/user-home']);
       }, (error) => {
         console.error(error);
+        this.toastr.error("", error.error.error);
         this.isSubmitClicked = false;
       })
     } else {
