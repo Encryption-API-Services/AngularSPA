@@ -4,7 +4,7 @@ This is the user interface for Encryption API Services that utilizies that hand 
 
 # To Start 
 ```shell
-npm install 
+npm install --force
 npm start
 ```
 
