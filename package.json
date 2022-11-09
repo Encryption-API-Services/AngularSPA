@@ -19,6 +19,7 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@angular/service-worker": "^14.2.9",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^4.6.2",
     "echarts": "^5.4.0",
