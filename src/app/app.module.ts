@@ -9,8 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppPreloadingStrategy } from './app-preloading-strategy';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
