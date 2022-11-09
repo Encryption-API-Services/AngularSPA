@@ -1,15 +1,10 @@
 {
   "name": "angular-spa",
   "version": "0.0.0",
-  "engines": {
-    "npm": ">=8.19.2",
-    "node": ">=18.2.0"
-  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-prod": "npm install --force && ng build",
     "dev": "ng serve --proxy-config proxy.conf.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -24,7 +19,6 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
-    "@angular/service-worker": "^14.0.0",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^4.6.2",
     "echarts": "^5.4.0",
