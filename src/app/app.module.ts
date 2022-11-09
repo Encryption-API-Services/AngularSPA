@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppPreloadingStrategy } from './app-preloading-strategy';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,10 +23,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [
-    AppPreloadingStrategy,
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
-  ],
+  providers: [AppPreloadingStrategy],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
