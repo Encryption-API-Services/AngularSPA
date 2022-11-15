@@ -32,4 +32,8 @@ export class AuthGuardService implements CanActivate {
   public removeToken(): void {
     localStorage.removeItem("token");
   }
+
+  public getToken(): any {
+    return localStorage.getItem("token");
+  }
 }
