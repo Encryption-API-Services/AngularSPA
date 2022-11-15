@@ -45,7 +45,6 @@ export class UserHomeComponent implements OnInit {
   }
 
   private turn2FAToOn(): void {
-    console.log("turn on 2fa");
     this.http.putAuthenticated(environment.apiUrl + "TwoFA/TurnOn2FA", null).subscribe((response: any) => {
       this.canEdit2FAStatus = true;
     }, (error) => {
