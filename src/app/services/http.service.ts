@@ -17,7 +17,7 @@ export class HttpService {
   }
 
   public getAuthenticated(url: string) {
-    return this.http.get(url, this.getAuthHeader())
+    return this.http.get(url, this.getAuthHeader());
   }
 
   public post(url: string, body: object) {
@@ -26,6 +26,10 @@ export class HttpService {
 
   public put(url: string, body: object) {
     return this.http.put(url, body);
+  }
+
+  public putAuthenticated(url: string, body: null) {
+    return this.http.put(url, null, this.getAuthHeader());
   }
 
   public delete(url: string, body: object) {
@@ -37,6 +41,7 @@ export class HttpService {
       headers: new HttpHeaders()
         .set('Authorization',  `Bearer ${this.authGuard.getToken()}`)
     }
+    console.log(header);
     return header;
   }
 }

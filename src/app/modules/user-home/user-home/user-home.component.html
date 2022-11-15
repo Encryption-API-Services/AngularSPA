@@ -8,13 +8,13 @@
                 <form [formGroup]="phone2FAForm">
                     <label for="phone-number-input" class="form-label">Phone 2FA</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" *ngIf="!is2FAOn">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked *ngIf="is2FAOn">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" *ngIf="!is2FAOn" (click)="edit2FAPhoneStatus($event)">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked *ngIf="is2FAOn" (click)="edit2FAPhoneStatus($event)">
                         <label class="form-check-label" for="flexCheckDefault">
                           Enable 2FA
                         </label>
                       </div>
-                    <input type="email" class="form-control" id="phone-number-input" aria-describedby="phone-number" formControlName="phoneNumber">
+                    <input #phoneNumber type="email" class="form-control" id="phone-number-input" aria-describedby="phone-number" formControlName="phoneNumber">
                     <button type="button" class="btn btn-primary">Submit</button>
                 </form>
             </div>

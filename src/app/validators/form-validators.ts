@@ -10,3 +10,11 @@ export function passwordValidator(control: AbstractControl) {
     } 
     return null;
 }
+
+export function phoneNumberValidator(control: AbstractControl) {
+    var regex: RegExp = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/
+    if (!regex.test(control.value)) {
+        return {phoneNumberValidator: {valid: false}};
+    }
+    return null;
+}
