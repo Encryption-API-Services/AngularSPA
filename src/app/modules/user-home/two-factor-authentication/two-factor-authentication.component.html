@@ -12,8 +12,11 @@
                   Enable 2FA
                 </label>
               </div>
-            <input #phoneNumber type="email" class="form-control" id="phone-number-input" aria-describedby="phone-number" formControlName="phoneNumber">
-            <button type="button" class="btn btn-primary">Submit</button>
+            <input type="email" class="form-control" id="phone-number-input" aria-describedby="phone-number" formControlName="phoneNumber" placeholder="Phone Number Here..." (keyup)="handleKeyPressOnPhoneInput($event)">
+            <button type="button" class="btn btn-primary" (click)="isPhoneNumberValid($event)" *ngIf="!hasPhoneNumberBeenSubmitted">Submit</button>
+            <div class="spinner-border text-primary" role="status" *ngIf="hasPhoneNumberBeenSubmitted">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         </form>
     </div>
 </div>

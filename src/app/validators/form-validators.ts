@@ -12,7 +12,7 @@ export function passwordValidator(control: AbstractControl) {
 }
 
 export function phoneNumberValidator(control: AbstractControl) {
-    var regex: RegExp = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/
+    var regex: RegExp = /^((\\+91-?)|0)?[0-9]{10}$/
     if (!regex.test(control.value)) {
         return {phoneNumberValidator: {valid: false}};
     }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/services/http.service';
 import { phoneNumberValidator } from 'src/app/validators/form-validators';
 import { environment } from 'src/environments/environment';
@@ -16,11 +17,43 @@ export class TwoFactorAuthenticationComponent implements OnInit {
   public phone2FAForm: FormGroup =  this.formBuilder.group({
     phoneNumber: ['', [Validators.required, phoneNumberValidator]]
   });
+  public hasPhoneNumberBeenSubmitted: boolean = false;
   
-  constructor(private formBuilder: FormBuilder, private http: HttpService) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private http: HttpService,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit(): void {
     this.GetPhone2FASettings();
+  }
+
+  public handleKeyPressOnPhoneInput(event: any): void {
+    event.target.value = event.target.value.replace(/[a-zA-Z!@#$%^&*()_+=-]/g, '');
+    if (event.keyCode === 13) {
+      this.isPhoneNumberValid(event);
+    }
+  }
+
+  public isPhoneNumberValid(event: any): void {
+    if (this.phone2FAForm.valid && !this.hasPhoneNumberBeenSubmitted) {
+      this.hasPhoneNumberBeenSubmitted = true;
+      this.http.putAuthenticated(environment.apiUrl + "TwoFA/UpdatePhoneNumber", this.getPhoneNumberChange()).subscribe((response: any) => {
+        this.phone2FAForm.reset();
+        this.toastr.success(response.message, "");
+        this.hasPhoneNumberBeenSubmitted = false;
+      }, (error) => {
+        this.hasPhoneNumberBeenSubmitted = false;
+        this.toastr.error(error.error.error, "");
+      });
+    }
+  }
+
+  private getPhoneNumberChange(): object {
+    return {
+      "phoneNumber": this.phone2FAForm.value["phoneNumber"]
+    }
   }
 
   private GetPhone2FASettings(): void {

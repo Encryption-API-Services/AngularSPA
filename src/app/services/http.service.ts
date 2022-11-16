@@ -28,8 +28,8 @@ export class HttpService {
     return this.http.put(url, body);
   }
 
-  public putAuthenticated(url: string, body: null) {
-    return this.http.put(url, null, this.getAuthHeader());
+  public putAuthenticated(url: string, body: any) {
+    return this.http.put(url, body, this.getAuthHeader());
   }
 
   public delete(url: string, body: object) {
