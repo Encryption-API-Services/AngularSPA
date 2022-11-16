@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { UserHomeRoutingModule } from './user-home-routing.module';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TwoFactorAuthenticationComponent } from './two-factor-authentication/two-factor-authentication.component';
 
 
 @NgModule({
   declarations: [
-    UserHomeComponent
+    UserHomeComponent,
+    TwoFactorAuthenticationComponent
   ],
   imports: [
     CommonModule,
