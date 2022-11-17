@@ -45,8 +45,14 @@ export class LoginComponent implements OnInit {
         this.isSubmitClicked = false;
         this.loginForm.reset();
         localStorage.setItem("token", response.token);
-        this.navbarEmitter.navbarEvents("user-logged-in");
-        this.router.navigate(['/user-home']);
+        //check if user has token stored
+        this.router.navigate(['/twofa']);
+
+
+
+
+        // this.navbarEmitter.navbarEvents("user-logged-in");
+        // this.router.navigate(['/user-home']);
       }, (error) => {
         console.error(error);
         this.toastr.error("", error.error.error);
