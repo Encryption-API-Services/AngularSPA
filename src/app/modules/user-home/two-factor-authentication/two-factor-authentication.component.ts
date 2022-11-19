@@ -58,7 +58,6 @@ export class TwoFactorAuthenticationComponent implements OnInit {
 
   private GetPhone2FASettings(): void {
     this.http.getAuthenticated(this.apiUrl).subscribe((response: any) => {
-      console.log(response);
       this.is2FAOn = response.result;
     }, (error) => {
       this.is2FAOn = false;

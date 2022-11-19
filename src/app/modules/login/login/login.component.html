@@ -10,7 +10,7 @@
     <div class="col">
     </div>
     <div class="col">
-        <form [formGroup]="loginForm" (keydown)="handleEnterPress($event)">
+        <form [formGroup]="loginForm" (keydown)="handleEnterPress($event)" *ngIf="!isTwoFactorForm">
             <div class="mb-3">
                 <label for="email-input" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp" formControlName="email">
@@ -22,6 +22,16 @@
             </div>
             <button type="button" class="btn btn-primary" (click)="handleFormSubmit($event)" (keydown)="handleEnterPress($event)" *ngIf="!isSubmitClicked">Submit</button>
             <div class="spinner-border text-primary" role="status" *ngIf="isSubmitClicked">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </form>
+        <form *ngIf="isTwoFactorForm" [formGroup]="twoFAForm" (keydown)="handleTwoFactorEnterPress($event)">
+            <div class="mb-3">
+                <label for="code-input" class="form-label">Code</label>
+                <input type="code" class="form-control" id="code-input" aria-describedby="codeHelp" formControlName="code">
+            </div>
+            <button type="button" class="btn btn-primary" *ngIf="!isTwoFactorFormSubmitted" (click)="twoFactorCodeSubmit($event)">Submit</button>
+            <div class="spinner-border text-primary" role="status" *ngIf="isTwoFactorFormSubmitted">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </form>

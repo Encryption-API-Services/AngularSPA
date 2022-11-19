@@ -41,7 +41,6 @@ export class HttpService {
       headers: new HttpHeaders()
         .set('Authorization',  `Bearer ${this.authGuard.getToken()}`)
     }
-    console.log(header);
     return header;
   }
 }

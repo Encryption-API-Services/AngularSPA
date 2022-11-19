@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import jwt_decode from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +35,14 @@ export class AuthGuardService implements CanActivate {
 
   public getToken(): any {
     return localStorage.getItem("token");
+  }
+
+  public getDecodedToken(): any {
+    let decodedToken;
+    let storageToken = this.getToken();
+    if (storageToken !== null) {
+      decodedToken = jwt_decode(storageToken);
+    }
+    return decodedToken;
   }
 }
