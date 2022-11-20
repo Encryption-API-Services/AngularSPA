@@ -84,7 +84,6 @@ export class TwoFactorAuthenticationComponent implements OnInit {
   }
 
   private turn2FAToOff(): void {
-    console.log("turn off 2fa");
     this.http.putAuthenticated(environment.apiUrl + "TwoFA/TurnOff2FA", null).subscribe((response: any) => {
       this.canEdit2FAStatus = true;
     }, (error) => {
