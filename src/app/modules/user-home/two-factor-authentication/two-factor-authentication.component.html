@@ -1,10 +1,9 @@
 <div class="card">
-    <div class="card-title">
-        <h3>Security Settings</h3>
+    <div class="card-title text-center">
+        <h3>2FA Security Settings</h3>
     </div>
     <div class="card-body">
         <form [formGroup]="phone2FAForm">
-            <label for="phone-number-input" class="form-label">Phone 2FA</label>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" *ngIf="!is2FAOn" (click)="edit2FAPhoneStatus($event)">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked *ngIf="is2FAOn" (click)="edit2FAPhoneStatus($event)">
