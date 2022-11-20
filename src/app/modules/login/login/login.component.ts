@@ -6,6 +6,7 @@ import LoginUserFormObject from 'src/app/models/LoginUserFormObject';
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { HttpService } from 'src/app/services/http.service';
 import { NavbarEmitterService } from 'src/app/services/navbar-emitter.service';
+import { UserAgentService } from 'src/app/services/user-agent.service';
 import { passwordValidator } from 'src/app/validators/form-validators';
 import { environment } from 'src/environments/environment';
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   private apiUrl: string = environment.apiUrl + "UserLogin";
   public isFormValid: boolean = false;
   public isSubmitClicked: boolean = false;
-  public isTwoFactorForm: boolean = true;
+  public isTwoFactorForm: boolean = false;
   public isTwoFactorFormSubmitted: boolean = false;
   public loginForm: FormGroup = this.formBuilder.group({
     email: ['mtmulch0191@outlook.com',
@@ -38,7 +39,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private navbarEmitter: NavbarEmitterService,
     private toastr: ToastrService,
-    private authGuard: AuthGuardService
+    private authGuard: AuthGuardService,
+    private userAgent: UserAgentService
   ) { }
 
   ngOnInit(): void {
@@ -74,7 +76,8 @@ export class LoginComponent implements OnInit {
   private createFormObject(): LoginUserFormObject {
     return new LoginUserFormObject(
       this.loginForm.value.email,
-      this.loginForm.value.password
+      this.loginForm.value.password,
+      this.userAgent.getUserAgent()
     );
   }
 
