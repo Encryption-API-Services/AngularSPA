@@ -27,6 +27,11 @@ export class SuccessfulLoginsComponent implements OnInit {
 
   public handleWasThisMe(wasThisMe: boolean, loginId: string): void {
     this.removeLoginFromDomList(loginId);
+    this.http.postAuthenticated(environment.apiUrl + "UserLogin/WasLoginMe", {"LoginId": loginId, "WasMe": wasThisMe}).subscribe((response: any) => {
+      console.log(response);
+    }, (error) => {
+
+    });
   }
 
   private removeLoginFromDomList(loginId: string): void {

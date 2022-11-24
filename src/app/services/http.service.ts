@@ -24,6 +24,10 @@ export class HttpService {
     return this.http.post(url, body);
   }
 
+  public postAuthenticated(url: string, body: object) {
+    return this.http.post(url, body, this.getAuthHeader());
+  }
+
   public put(url: string, body: object) {
     return this.http.put(url, body);
   }
