@@ -32,14 +32,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    NgxEchartsModule.forRoot({
-      /**
-       * This will import all modules from echarts.
-       * If you only need custom modules,
-       * please refer to [Custom Build] section.
-       */
-      echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
-    })
+    NgxEchartsModule.forRoot({ echarts: () => import('echarts') })
   ],
   providers: [
     AppPreloadingStrategy,
