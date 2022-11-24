@@ -12,6 +12,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,14 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
+    }),
+    NgxEchartsModule.forRoot({
+      /**
+       * This will import all modules from echarts.
+       * If you only need custom modules,
+       * please refer to [Custom Build] section.
+       */
+      echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
     })
   ],
   providers: [
