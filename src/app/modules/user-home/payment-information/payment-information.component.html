@@ -1,1 +1,12 @@
-<p>payment-information works!</p>
+<form [formGroup]="paymentInfoForm">
+    <label>Credit Card Number</label>
+    <input type="text" class="form-control" id="phone-number-input" aria-describedby="credit-card-number" formControlName="creditCardNumber" placeholder="CC here...">
+    <label>Expiration Date</label>
+    <input type="text" class="form-control" id="phone-number-input" aria-describedby="credit-card-number" formControlName="expirationDate" placeholder="Expiration here...">
+    <label>Security Code</label>
+    <input type="text" class="form-control" id="phone-number-input" aria-describedby="credit-card-number" formControlName="securityCode" placeholder="Security Code here...">
+    <button type="button" class="btn btn-primary" (click)="handlePaymentInformationSubmit($event)">Submit</button>
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</form>
