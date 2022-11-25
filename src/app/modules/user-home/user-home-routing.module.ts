@@ -5,8 +5,13 @@ import { PaymentInformationComponent } from './payment-information/payment-infor
 import { UserHomeComponent } from './user-home/user-home.component';
 
 const routes: Routes = [
-  { path: "", component: UserHomeComponent, canActivate: [AuthGuardService] },
-  { path: "payment", component: PaymentInformationComponent, canActivate: [AuthGuardService] }
+  {
+    path: "", component: UserHomeComponent, canActivate: [AuthGuardService], children: [
+      {
+        path: "payment", component: PaymentInformationComponent, canActivate: [AuthGuardService]
+      }
+    ]
+  },
 ];
 
 @NgModule({

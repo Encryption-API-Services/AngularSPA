@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TwoFactorAuthenticationComponent } from './two-factor-authentication/two-factor-authentication.component';
 import { SuccessfulLoginsComponent } from './successful-logins/successful-logins.component';
 import { PaymentInformationComponent } from './payment-information/payment-information.component';
+import { UserHomeNavigationComponent } from './user-home-navigation/user-home-navigation.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { PaymentInformationComponent } from './payment-information/payment-infor
     UserHomeComponent,
     TwoFactorAuthenticationComponent,
     SuccessfulLoginsComponent,
-    PaymentInformationComponent
+    PaymentInformationComponent,
+    UserHomeNavigationComponent
   ],
   imports: [
     CommonModule,
