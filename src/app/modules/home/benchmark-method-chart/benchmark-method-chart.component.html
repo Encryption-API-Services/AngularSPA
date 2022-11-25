@@ -1,1 +1,4 @@
-<div echarts [options]="chartOption" class="demo-chart"></div>
+<div *ngIf="canDisplay">
+    <h3>Our Last 25 Executed Methods</h3>
+    <div echarts [options]="chartOption" class="demo-chart"></div>
+</div>

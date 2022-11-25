@@ -11,9 +11,9 @@ import { BenchmarkMethodChartFormatterService } from '../services/benchmark-meth
   styleUrls: ['./benchmark-method-chart.component.css']
 })
 export class BenchmarkMethodChartComponent implements OnInit {
-  public data!: HomeBenchMark;
 
   public chartOption!: EChartsOption;
+  public canDisplay: boolean = false;
 
   constructor(private formatter: BenchmarkMethodChartFormatterService, private http: HttpService) { }
 
@@ -23,8 +23,14 @@ export class BenchmarkMethodChartComponent implements OnInit {
 
   public getBenchMarkData(): void {
     this.http.get(environment.apiUrl + "UIData/GetHomeBenchmarkData").subscribe((response: any) => {
-      let httpResponse: HomeBenchMark = response;
-      let xAxisData: string[] = [];
+      this.createLast25RequestChart(response);
+    }, (error) => {
+
+    });
+  }
+
+  private createLast25RequestChart(httpResponse: HomeBenchMark): void {
+    let xAxisData: string[] = [];
       let yAxisData: number[] = [];
       for (let i = 0; i < httpResponse.data.length; i++) {
         if (!xAxisData.includes(httpResponse.data[i].details.method)) {
@@ -54,8 +60,6 @@ export class BenchmarkMethodChartComponent implements OnInit {
           },
         ],
       };
-    }, (error) => {
-
-    });
+      this.canDisplay = true;
   }
 }
