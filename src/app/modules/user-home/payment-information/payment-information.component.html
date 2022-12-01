@@ -1,8 +1,10 @@
 <form [formGroup]="paymentInfoForm">
     <label>Credit Card Number</label>
     <input type="text" class="form-control" id="phone-number-input" aria-describedby="credit-card-number" formControlName="creditCardNumber" placeholder="CC here...">
-    <label>Expiration Date</label>
-    <input type="text" class="form-control" id="phone-number-input" aria-describedby="credit-card-number" formControlName="expirationDate" placeholder="Expiration here...">
+    <label>Expiration Month</label>
+    <input type="text" class="form-control" id="phone-number-input" aria-describedby="credit-card-number" formControlName="expirationMonth" placeholder="Expiration month here...">
+    <label>Expiration Year</label>
+    <input type="text" class="form-control" id="phone-number-input" aria-describedby="credit-card-number" formControlName="expirationYear" placeholder="Expiration year here...">
     <label>Security Code</label>
     <input type="text" class="form-control" id="phone-number-input" aria-describedby="credit-card-number" formControlName="securityCode" placeholder="Security Code here...">
     <button type="button" class="btn btn-primary" (click)="handlePaymentInformationSubmit($event)">Submit</button>
