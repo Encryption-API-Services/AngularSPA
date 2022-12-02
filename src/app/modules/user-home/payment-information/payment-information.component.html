@@ -7,8 +7,8 @@
     <input type="text" class="form-control" id="phone-number-input" aria-describedby="credit-card-number" formControlName="expirationYear" placeholder="Expiration year here...">
     <label>Security Code</label>
     <input type="text" class="form-control" id="phone-number-input" aria-describedby="credit-card-number" formControlName="securityCode" placeholder="Security Code here...">
-    <button type="button" class="btn btn-primary" (click)="handlePaymentInformationSubmit($event)">Submit</button>
-    <div class="spinner-border text-primary" role="status">
+    <button type="button" class="btn btn-primary" (click)="handlePaymentInformationSubmit($event)" *ngIf="!wasFormSubmitted">Submit</button>
+    <div class="spinner-border text-primary" role="status" *ngIf="wasFormSubmitted">
         <span class="visually-hidden">Loading...</span>
     </div>
 </form>
