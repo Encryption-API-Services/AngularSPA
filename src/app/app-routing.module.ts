@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: "activate", loadChildren: () => import(`./modules/activate/activate.module`).then(module => module.ActivateModule), data: { preload: true, delay: 5000 } },
   { path: "user-home", loadChildren: () => import(`./modules/user-home/user-home.module`).then(module => module.UserHomeModule), canActivate: [AuthGuardService], data: { preload: true, delay: 5000 } },
   { path: "forgot-password", loadChildren: () => import(`./modules/forgot-password/forgot-password.module`).then(module => module.ForgotPasswordModule), data: { preload: true, delay: 5000 } },
+  { path: "admin-home", loadChildren: () => import(`./modules/admin-home/admin-home.module`).then(module => module.AdminHomeModule), data: { preload: true, delay: 5000 } },
   { path: "**", redirectTo: "home", pathMatch: "full" }
 ];
 
