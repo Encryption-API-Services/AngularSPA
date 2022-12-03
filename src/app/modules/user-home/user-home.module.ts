@@ -8,6 +8,7 @@ import { TwoFactorAuthenticationComponent } from './two-factor-authentication/tw
 import { SuccessfulLoginsComponent } from './successful-logins/successful-logins.component';
 import { PaymentInformationComponent } from './payment-information/payment-information.component';
 import { UserHomeNavigationComponent } from './user-home-navigation/user-home-navigation.component';
+import { ApiKeyComponent } from './api-key/api-key.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { UserHomeNavigationComponent } from './user-home-navigation/user-home-na
     TwoFactorAuthenticationComponent,
     SuccessfulLoginsComponent,
     PaymentInformationComponent,
-    UserHomeNavigationComponent
+    UserHomeNavigationComponent,
+    ApiKeyComponent
   ],
   imports: [
     CommonModule,
