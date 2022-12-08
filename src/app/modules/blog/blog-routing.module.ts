@@ -6,7 +6,7 @@ import { BlogHomeComponent } from './blog-home/blog-home.component';
 
 const routes: Routes = [
   { path: "", component: BlogHomeComponent },
-  {path: "admin", component: BlogAdminComponent, canActivate: [AdminAuthGuardService]}
+  { path: "admin", component: BlogAdminComponent, canActivate: [AdminAuthGuardService] }
 ];
 
 @NgModule({
