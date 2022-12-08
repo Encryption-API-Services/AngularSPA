@@ -1,1 +1,8 @@
-<p>create-blog-post works!</p>
+<form [formGroup]="form">
+    <div class="NgxEditor__Wrapper">
+        <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+        <ngx-editor [editor]="editor" [placeholder]="'Type here...'" formControlName="blogPostInput"></ngx-editor>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="handleSubmit()">Submit</button>
+</form>
