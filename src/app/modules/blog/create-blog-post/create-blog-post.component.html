@@ -1,4 +1,8 @@
 <form [formGroup]="form">
+    <div class="mb-3">
+        <label for="post-title" class="form-label">Post Title</label>
+        <input type="text" class="form-control" id="post-title" aria-describedby="postTitle" formControlName="postTitle">
+    </div>
     <div class="NgxEditor__Wrapper">
         <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
         <ngx-editor [editor]="editor" [placeholder]="'Type here...'" formControlName="blogPostInput"></ngx-editor>

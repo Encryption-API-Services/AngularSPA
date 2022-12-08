@@ -21,6 +21,7 @@ export class CreateBlogPostComponent implements OnInit, OnDestroy {
   ];
 
   public form = new FormGroup({
+    postTitle: new FormControl(''),
     blogPostInput: new FormControl('')
   });
 
