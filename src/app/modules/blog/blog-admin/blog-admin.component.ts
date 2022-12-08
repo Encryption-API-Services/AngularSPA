@@ -10,6 +10,7 @@ export class BlogAdminComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
