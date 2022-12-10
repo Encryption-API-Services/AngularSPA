@@ -22,14 +22,14 @@ export class LoginComponent implements OnInit {
   public isTwoFactorForm: boolean = false;
   public isTwoFactorFormSubmitted: boolean = false;
   public loginForm: FormGroup = this.formBuilder.group({
-    email: ['mtmulch0191@outlook.com',
+    email: ['',
       [Validators.required, Validators.email]
     ],
-    password: ['Testing12345!@',
+    password: ['',
       [Validators.required, passwordValidator]]
   });
   public twoFAForm: FormGroup = this.formBuilder.group({
-    code: ['93974716', [Validators.required, Validators.minLength(8)]]
+    code: ['', [Validators.required, Validators.minLength(8)]]
   });
 
 
