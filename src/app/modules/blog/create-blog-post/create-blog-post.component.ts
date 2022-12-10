@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Editor, Toolbar } from 'ngx-editor';
+import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/services/http.service';
 import { environment } from 'src/environments/environment';
 
@@ -26,7 +27,8 @@ export class CreateBlogPostComponent implements OnInit, OnDestroy {
 
   constructor(
     private formBuilder: FormBuilder,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private toastr: ToastrService
     ) {
 
    }
@@ -52,14 +54,14 @@ export class CreateBlogPostComponent implements OnInit, OnDestroy {
   public handleSubmit(): void {
     if (this.form.valid) {
       const body = {
-        PostTitle: this.form.value["blogPostTitle"],
-        PostBody: this.form.value["blogPostInput"]
-      };
-      console.log(body);      
+        BlogTitle: this.form.value["blogPostTitle"],
+        BlogBody: this.form.value["blogPostInput"]
+      };    
       this.httpService.postAuthenticated(environment.apiUrl + "Blog/CreatePost", body).subscribe(response => {
-        console.log(response);
+        this.form.reset();
+        this.toastr.success("", "Blog post created");
       }, (error) => {
-
+        this.toastr.error(error.error.error);
       });
     }
   }
