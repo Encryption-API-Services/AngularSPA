@@ -17,7 +17,6 @@ export class AdminAuthGuardService implements CanActivate {
     const token = this.authGuard.getDecodedToken()
     if (!token || token.IsAdmin === "False") {
       result = false;
-      this.router.navigate(['/blog'])
     }
     return result;
   }

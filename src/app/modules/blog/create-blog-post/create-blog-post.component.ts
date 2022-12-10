@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Editor, Toolbar } from 'ngx-editor';
+import { HttpService } from 'src/app/services/http.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-create-blog-post',
@@ -20,12 +22,12 @@ export class CreateBlogPostComponent implements OnInit, OnDestroy {
     ['align_left', 'align_center', 'align_right', 'align_justify'],
   ];
 
-  public form = new FormGroup({
-    postTitle: new FormControl(''),
-    blogPostInput: new FormControl('')
-  });
+  public form: FormGroup;
 
-  constructor() {
+  constructor(
+    private formBuilder: FormBuilder,
+    private httpService: HttpService
+    ) {
 
    }
 
@@ -33,13 +35,32 @@ export class CreateBlogPostComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.editor = new Editor();
+    this.createFormGroup();
   }
 
   ngOnDestroy(): void {
     this.editor.destroy();
   }
 
+  private createFormGroup(): void {
+    this.form = this.formBuilder.group({
+      blogPostTitle: ["", Validators.required],
+      blogPostInput: ["", Validators.required]
+    });
+  }
+
   public handleSubmit(): void {
-    console.log(this.form.value);
+    if (this.form.valid) {
+      const body = {
+        PostTitle: this.form.value["blogPostTitle"],
+        PostBody: this.form.value["blogPostInput"]
+      };
+      console.log(body);      
+      this.httpService.postAuthenticated(environment.apiUrl + "Blog/CreatePost", body).subscribe(response => {
+        console.log(response);
+      }, (error) => {
+
+      });
+    }
   }
 }
