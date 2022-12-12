@@ -53,7 +53,7 @@ export class ResetPasswordComponent implements OnInit {
         this.toastr.success("", "You have changed your password");
       }, (error) => {
         this.hasFormBeenSubmitted = false;
-        this.toastr.error(error.error.error);
+        this.toastr.error("", error.error.error);
       });
     }
   }
