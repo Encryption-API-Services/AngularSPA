@@ -8,6 +8,7 @@ import { CreateBlogPostComponent } from './create-blog-post/create-blog-post.com
 import { NgxEditorModule } from 'ngx-editor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StandardDatePipe } from 'src/app/pipes/standard-date.pipe';
+import { BlogEllipsisPipe } from 'src/app/pipes/blog-ellipsis.pipe';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { StandardDatePipe } from 'src/app/pipes/standard-date.pipe';
     BlogHomeComponent,
     BlogAdminComponent,
     CreateBlogPostComponent,
-    StandardDatePipe
+    StandardDatePipe,
+    BlogEllipsisPipe
   ],
   imports: [
     CommonModule,
