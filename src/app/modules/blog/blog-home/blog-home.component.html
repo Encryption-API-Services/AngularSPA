@@ -4,9 +4,9 @@
         <div class="row" *ngFor="let post of blogPosts">
             <div class="card">
                 <div class="card-body">
-                  <h2 class="card-title text-center">{{post.blogTitle}}</h2>
-                  <h4 class="text-center">Written On: {{post.createDate | standardDate}}</h4>
-                  <div class="card-text" [innerHTML]="post.blogBody"></div>
+                    <h2 class="card-title text-center">{{post.blogTitle}}</h2>
+                    <h4 class="text-center">Written On: {{post.createDate | standardDate}}</h4>
+                    <div class="card-text" [innerHTML]="post.blogBody | blogEllipsis: '500' "></div>
                 </div>
             </div>
         </div>
