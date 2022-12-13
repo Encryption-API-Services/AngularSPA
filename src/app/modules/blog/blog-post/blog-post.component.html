@@ -1,0 +1,13 @@
+<div class="row" *ngIf="isPostIn">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div class="card">
+            <div class="card-body">
+                    <h2 class="card-title text-center">{{post.blogTitle}}</h2>
+                <h4 class="text-center">Written On: {{post.createDate | standardDate}}</h4>
+                <div class="card-text" [innerHTML]="post.blogBody"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
