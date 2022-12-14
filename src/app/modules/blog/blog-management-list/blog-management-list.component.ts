@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { BlogService } from 'src/app/services/blog.service';
 import { HttpService } from 'src/app/services/http.service';
 import { environment } from 'src/environments/environment';
@@ -14,7 +15,8 @@ export class BlogManagementListComponent implements OnInit {
 
   constructor(
     private httpService: HttpService,
-    private blogService: BlogService
+    private blogService: BlogService,
+    private toastr: ToastrService
     ) { }
 
   ngOnInit(): void {
@@ -36,6 +38,10 @@ export class BlogManagementListComponent implements OnInit {
   }
 
   public deleteBlogPost(id: string): void {
-
+    const body = {id: id};
+    this.httpService.postAuthenticated(environment.apiUrl + `Blog/DeletePost`, body).subscribe(response => {
+      this.toastr.success("", "Deleted Blog Post");
+      this.getBlogPosts();
+    });
   }
 }

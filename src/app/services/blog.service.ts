@@ -16,4 +16,8 @@ export class BlogService {
   public navigateToModifyBlogPost(id: string): void {
     this.router.navigate([`/blog/edit-post/${id}`]);
   }
+
+  public navigateToBlogAdmin(): void {
+    this.router.navigate(['/blog/admin']);
+  }
 }
