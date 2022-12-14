@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Editor, Toolbar, Validators } from 'ngx-editor';
+import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/services/http.service';
 import { environment } from 'src/environments/environment';
 import { BlogPost } from '../types/BlogPost';
@@ -28,7 +29,9 @@ export class EditBlogPostComponent implements OnInit {
   constructor(
     private httpService: HttpService,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private toastr: ToastrService
     ) { }
 
   ngOnInit(): void {
@@ -51,6 +54,14 @@ export class EditBlogPostComponent implements OnInit {
     });
   }
   public handleModify(): void {
-    
+    const body = {
+      BlogId: this.route.snapshot.url[1].path,
+      BlogTitle: this.form.value["blogPostTitle"],
+      BlogBody: this.form.value["blogPostInput"]
+    };    
+    this.httpService.putAuthenticated(environment.apiUrl + "Blog/UpdatePost", body).subscribe(response => {
+      this.toastr.success("", "Blog Post Modified");
+      this.router.navigate(['/blog/admin']);
+    });
   }
 }
