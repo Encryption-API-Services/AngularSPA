@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Editor, Toolbar, Validators } from 'ngx-editor';
@@ -12,7 +12,7 @@ import { BlogPost } from '../types/BlogPost';
   templateUrl: './edit-blog-post.component.html',
   styleUrls: ['./edit-blog-post.component.css']
 })
-export class EditBlogPostComponent implements OnInit {
+export class EditBlogPostComponent implements OnInit, OnDestroy {
   public editor: Editor;
   public toolbar: Toolbar = [
     ['bold', 'italic'],
@@ -33,6 +33,10 @@ export class EditBlogPostComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService
     ) { }
+
+  ngOnDestroy(): void {
+    this.editor.destroy();
+  }
 
   ngOnInit(): void {
     this.createFormGroup();
