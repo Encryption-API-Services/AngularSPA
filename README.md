@@ -13,4 +13,7 @@ Development Tools Required for WSL2 and VsCode.
 
 This project was written using [Node.js](https://nodejs.org/dist/v18.12.0/)
 
+# Supporters / Dontations
+:coffee: [Buy Me A Coffee](https://www.buymeacoffee.com/mikemulchrs)
+
 This project is maintained using [Apache 2.0](https://github.com/Encryption-API-Services/AngularSPA/blob/master/LICENSE).
