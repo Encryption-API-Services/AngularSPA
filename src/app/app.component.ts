@@ -25,6 +25,6 @@ export class AppComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         gtag('config', 'G-4CPLQ15C7N', { 'page_path': event.urlAfterRedirects });
       }      
-    })
+    });
   }
 }
