@@ -5,12 +5,14 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
 import { BenchmarkMethodChartComponent } from './benchmark-method-chart/benchmark-method-chart.component';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { SponsorsDonationsComponent } from './sponsors-donations/sponsors-donations.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    BenchmarkMethodChartComponent
+    BenchmarkMethodChartComponent,
+    SponsorsDonationsComponent
   ],
   imports: [
     CommonModule,
