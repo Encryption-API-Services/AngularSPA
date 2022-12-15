@@ -31,7 +31,7 @@ export class BlogPostComponent implements OnInit {
       this.isPostIn = true;
       this.post = response.post;
     }, (error) => {
-      this.toastr.error("", error.error.error);
+      this.toastr.error("", error.error);
     });
   }
 }
