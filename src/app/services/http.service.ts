@@ -40,6 +40,12 @@ export class HttpService {
     return this.http.delete(url, body);
   }
 
+  public deleteAuthenticated(url: string, body: any) {
+    let headers = this.getAuthHeader();
+    headers.body = body;
+    return this.http.delete(url, headers);
+  }
+
   private getAuthHeader(): any {
     var header = {
       headers: new HttpHeaders()

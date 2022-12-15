@@ -1,0 +1,9 @@
+<div class="row" *ngFor="let post of posts">
+    <div class="col-12">
+        <a class="blog-link" (click)="viewBlogPost(post.blogTitle)">
+            <h2 class="card-title">{{post.blogTitle}}</h2>
+        </a>
+        <button class="btn btn-primary" (click)="modifyBlogPost(post.id)">Modify</button>
+        <button class="btn btn-danger" (click)="deleteBlogPost(post.id)">Delete</button>
+    </div>
+</div>

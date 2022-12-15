@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StandardDatePipe } from 'src/app/pipes/standard-date.pipe';
 import { BlogEllipsisPipe } from 'src/app/pipes/blog-ellipsis.pipe';
 import { BlogPostComponent } from './blog-post/blog-post.component';
+import { EditBlogPostComponent } from './edit-blog-post/edit-blog-post.component';
+import { BlogManagementListComponent } from './blog-management-list/blog-management-list.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
     CreateBlogPostComponent,
     StandardDatePipe,
     BlogEllipsisPipe,
-    BlogPostComponent
+    BlogPostComponent,
+    EditBlogPostComponent,
+    BlogManagementListComponent
   ],
   imports: [
     CommonModule,
