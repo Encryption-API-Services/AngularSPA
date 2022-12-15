@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/services/http.service';
@@ -18,7 +19,8 @@ export class BlogPostComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private httpService: HttpService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private title: Title
     ) { }
 
   ngOnInit(): void {
@@ -29,9 +31,14 @@ export class BlogPostComponent implements OnInit {
     let title = this.route.snapshot.params["title"];
     this.httpService.get(environment.apiUrl + `Blog/GetPost/${title}`).subscribe((response: any) => {
       this.isPostIn = true;
+      this.setSEO(response.post);
       this.post = response.post;
     }, (error) => {
       this.toastr.error("", error.error);
     });
+  }
+
+  private setSEO(post: BlogPost): void {
+    this.title.setTitle(post.blogTitle + " | Blog");
   }
 }
