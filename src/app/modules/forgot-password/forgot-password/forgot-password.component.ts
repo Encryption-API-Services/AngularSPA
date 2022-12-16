@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/services/http.service';
 import { environment } from 'src/environments/environment';
@@ -20,11 +21,12 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder, 
     private http: HttpService,
-    private toastr: ToastrService
+    private toastr: ToastrService, 
+    private title: Title
     ) { }
 
   ngOnInit(): void {
-
+    this.title.setTitle("Forgot Password | Encryption API Services");
   }
 
   public handleKeyPress(event: any): void {

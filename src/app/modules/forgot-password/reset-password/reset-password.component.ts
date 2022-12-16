@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/services/http.service';
@@ -24,11 +25,12 @@ export class ResetPasswordComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpService,
     private router: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private title: Title
     ) { }
 
   ngOnInit(): void {
-
+    this.title.setTitle("Reset Password | Encryption API Services");
   }
 
   public handleKeyDownOnForm(event: any): void {

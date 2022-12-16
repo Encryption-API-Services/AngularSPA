@@ -39,6 +39,6 @@ export class BlogPostComponent implements OnInit {
   }
 
   private setSEO(post: BlogPost): void {
-    this.title.setTitle(post.blogTitle + " | Blog");
+    this.title.setTitle(post.blogTitle + " | Encryption API Services");
   }
 }

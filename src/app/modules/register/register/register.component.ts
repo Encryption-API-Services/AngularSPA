@@ -1,6 +1,7 @@
 // deno-lint-ignore-file no-inferrable-types
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 import RegisterUserFormObject from 'src/app/models/RegisterUserFormObject';
 import { HttpService } from 'src/app/services/http.service';
@@ -29,14 +30,15 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder, 
     private http: HttpService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private title: Title
     ) {
 
   }
 
 
   ngOnInit(): void {
-
+    this.title.setTitle("Register | Encryption API Services");
   }
 
   public handleFormSubmit($event: any) {

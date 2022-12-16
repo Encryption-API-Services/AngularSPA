@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import LoginUserFormObject from 'src/app/models/LoginUserFormObject';
@@ -40,11 +41,12 @@ export class LoginComponent implements OnInit {
     private navbarEmitter: NavbarEmitterService,
     private toastr: ToastrService,
     private authGuard: AuthGuardService,
-    private userAgent: UserAgentService
+    private userAgent: UserAgentService, 
+    private title: Title
   ) { }
 
   ngOnInit(): void {
-
+    this.title.setTitle("Login | Encryption API Services");
   }
 
   public handleFormSubmit($event: any) {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
 import { environment } from 'src/environments/environment';
@@ -12,9 +13,15 @@ export class ActivateComponent implements OnInit {
   private apiUrl: string = environment.apiUrl + "UserRegister/Activate";
   public isAuthenticating: boolean = false;
   public wasSuccessful: boolean = false;
-  constructor(private router: ActivatedRoute, private http: HttpService) { }
+
+  constructor(
+    private router: ActivatedRoute, 
+    private http: HttpService, 
+    private title: Title
+    ) { }
 
   ngOnInit(): void {
+    this.title.setTitle("Activate User | Encryption API Services");
     this.isAuthenticating = true;
     const body = {
       "id": this.router.snapshot.queryParamMap.get('id'),

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 import { BlogService } from 'src/app/services/blog.service';
 import { HttpService } from 'src/app/services/http.service';
@@ -16,10 +17,12 @@ export class BlogHomeComponent implements OnInit {
   constructor(
     private httpService: HttpService,
     private toastr: ToastrService,
-    private blogService: BlogService
+    private blogService: BlogService,
+    private title: Title
     ) { }
 
   ngOnInit(): void {
+    this.title.setTitle("Blog | Encryption API Services");
     this.getHomeBlogPosts();
   }
 
