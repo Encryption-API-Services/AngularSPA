@@ -40,6 +40,7 @@ export class PaymentInformationComponent implements OnInit {
         this.paymentInfoForm.reset();
         this.toast.success("Updated Card Information", "")
       }, (error) => {
+        this.wasFormSubmitted = false;
         this.toast.error("Something went wrong on our end please try again", "");
       });
     }
