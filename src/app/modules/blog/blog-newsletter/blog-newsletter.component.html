@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title text-center">Newsletter</h2>
+        <div class="card-text">
+            <p>If you wish to get alerts when a new blog post is created please enter your email below.</p>
+            <form [formGroup]="form">
+                <div class="mb-3">
+                    <label for="email-input" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp" formControlName="email">
+                </div>
+                <div class="mb-3">
+                    <button type="button" class="btn btn-primary" (click)="handleFormSubmit($event)">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

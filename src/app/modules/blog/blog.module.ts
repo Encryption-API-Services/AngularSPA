@@ -12,6 +12,7 @@ import { BlogEllipsisPipe } from 'src/app/pipes/blog-ellipsis.pipe';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { EditBlogPostComponent } from './edit-blog-post/edit-blog-post.component';
 import { BlogManagementListComponent } from './blog-management-list/blog-management-list.component';
+import { BlogNewsletterComponent } from './blog-newsletter/blog-newsletter.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { BlogManagementListComponent } from './blog-management-list/blog-managem
     BlogEllipsisPipe,
     BlogPostComponent,
     EditBlogPostComponent,
-    BlogManagementListComponent
+    BlogManagementListComponent,
+    BlogNewsletterComponent
   ],
   imports: [
     CommonModule,
