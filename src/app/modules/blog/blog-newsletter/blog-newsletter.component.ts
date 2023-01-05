@@ -27,7 +27,7 @@ export class BlogNewsletterComponent implements OnInit {
   public handleFormSubmit(event: any): void {
     if (this.form.valid) {
       const body = { email: this.form.value['email'] };
-      this.httpService.postAuthenticated(environment.apiUrl + "Blog/Newsletter", body).subscribe((response:any ) => {
+      this.httpService.post(environment.apiUrl + "Blog/Newsletter", body).subscribe((response:any ) => {
         this.toastr.success("", response.message);
         this.form.reset();
       }, (error) => {
