@@ -59,7 +59,7 @@ export class CreateBlogPostComponent implements OnInit, OnDestroy {
         BlogTitle: this.form.value["blogPostTitle"],
         BlogBody: this.form.value["blogPostInput"]
       };    
-      this.httpService.postAuthenticated(environment.apiUrl + "/Blog/CreatePost", body).subscribe(response => {
+      this.httpService.postAuthenticated(environment.apiUrl + "Blog/CreatePost", body).subscribe(response => {
         this.form.reset();
         this.toastr.success("", "Blog post created");
         this.router.navigate(['/blog/admin']);
