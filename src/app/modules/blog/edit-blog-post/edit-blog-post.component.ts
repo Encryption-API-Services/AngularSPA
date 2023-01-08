@@ -42,7 +42,7 @@ export class EditBlogPostComponent implements OnInit, OnDestroy {
     this.createFormGroup();
     this.editor = new Editor();
     let id = this.route.snapshot.url[1].path;
-    this.httpService.getAuthenticated(environment.apiUrl + `Blog/${id}`).subscribe((response: any) => {
+    this.httpService.getAuthenticated(environment.apiUrl + `Blog?id=${id}`).subscribe((response: any) => {
       let post = response.post as BlogPost;
       this.form.patchValue({
         blogPostTitle: post.blogTitle
